@@ -1,7 +1,9 @@
 ```markdown
-# Research Assistant ChatBot 🤖
+# Research Assistant ChatBot 
 
-A powerful, intelligent research assistant built with LangChain and Streamlit that uses RAG (Retrieval Augmented Generation) to provide context-aware responses based on your documents.
+A powerful, intelligent research assistant built with LangChain and Streamlit that 
+uses RAG (Retrieval Augmented Generation) 
+to provide context-aware responses based on your documents.
 
 ## 🌟 Features
 
@@ -77,6 +79,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 Pinaki Guha  - [pinaki.guha@gmail.com](mailto:pinaki.guha@gmail.com)
 
-Project Link: [https://https://github.com/gpinaki/research-assistant-rag/](https://https://github.com/gpinaki/research-assistant-rag/)
+Project Link: [https://github.com/gpinaki/research-assistant-rag/](https://github.com/gpinaki/research-assistant-rag)
 ```
 
