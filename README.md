@@ -12,8 +12,8 @@ A powerful and intelligent research assistant built using **LangChain** and **St
 - **Contextual Intelligence**: Powered by GPT-4 and RAG architecture for precise, contextually-aware responses.
 - **User-Friendly Interface**: Built with Streamlit, offering a clean, intuitive UI.
   
-  ![Main Interface](assets/screenshots/main_interface.png)
-
+  ![Main Interface](assets/screenshots/main_page.png)
+  
 - **Real-time Response Streaming**: Instant AI responses as they are being generated.
 - **Customizable Themes**: Switch between light and dark modes.
 - **Optimized Document Processing**: Efficient chunking and retrieval for fast and accurate results.
