@@ -50,34 +50,110 @@ def setup_streamlit_ui():
         layout="wide"
     )
     
-    # Custom CSS for better UI/UX
+    # Theme selection
+    theme = st.sidebar.selectbox("Select Theme", ["Light", "Dark"])
+    if theme == "Dark":
+        st.markdown("""
+            <style>
+                body {
+                    background-color: #1F1F1F;
+                    color: #E0E0E0;
+                }
+                .main-title {
+                    font-size: 2.7em;
+                    font-weight: bold;
+                    color: #FFFFFF;
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .sub-header {
+                    font-size: 1.7em;
+                    color: #D3D3D3;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                .sidebar .sidebar-content {
+                    background-color: #333333;
+                    padding: 20px;
+                }
+                .chat-bubble {
+                    padding: 15px;
+                    border-radius: 15px;
+                    margin-bottom: 15px;
+                }
+                .human-bubble {
+                    background-color: #6FCF97;
+                    text-align: right;
+                }
+                .ai-bubble {
+                    background-color: #4F4F4F;
+                    text-align: left;
+                }
+                .footer {
+                    text-align: center;
+                    margin-top: 50px;
+                    font-size: 0.9em;
+                    color: #A9A9A9;
+                }
+            </style>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+            <style>
+                body {
+                    background-color: #F8F9FA;
+                    color: #333333;
+                }
+                .main-title {
+                    font-size: 2.7em;
+                    font-weight: bold;
+                    color: #333333;
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .sub-header {
+                    font-size: 1.7em;
+                    color: #4F4F4F;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                .sidebar .sidebar-content {
+                    background-color: #f0f4f8;
+                    padding: 20px;
+                }
+                .chat-bubble {
+                    padding: 15px;
+                    border-radius: 15px;
+                    margin-bottom: 15px;
+                }
+                .human-bubble {
+                    background-color: #C8E6C9;
+                    text-align: right;
+                }
+                .ai-bubble {
+                    background-color: #f0f4f8;
+                    text-align: left;
+                }
+                .footer {
+                    text-align: center;
+                    margin-top: 50px;
+                    font-size: 0.9em;
+                    color: #888888;
+                }
+            </style>
+        """, unsafe_allow_html=True)
+    
+    # Add title to the webpage
+    st.markdown('<h1 class="main-title">Research Assistant ChatBot</h1>', unsafe_allow_html=True)
+    
+    # Add sub-header to the webpage
+    st.markdown('<h2 class="sub-header">Your AI-powered research companion for smarter, faster insights – transforming documents into knowledge.</h2>', unsafe_allow_html=True)
+    
+    # Add footer to the webpage
     st.markdown("""
-        <style>
-            .main-title {
-                font-size: 2.5em;
-                font-weight: bold;
-                color: #4CAF50;
-                text-align: center;
-                margin-top: 20px;
-            }
-            .sidebar .sidebar-content {
-                background-color: #f0f2f6;
-                padding: 20px;
-            }
-            .chat-bubble {
-                padding: 10px;
-                border-radius: 10px;
-                margin-bottom: 10px;
-            }
-            .human-bubble {
-                background-color: #DCF8C6;
-                text-align: right;
-            }
-            .ai-bubble {
-                background-color: #f0f2f6;
-                text-align: left;
-            }
-        </style>
+        <div class="footer">
+            Powered by LangChain and Streamlit | Experimental Version | Author: Pinaki Guha
+        </div>
     """, unsafe_allow_html=True)
 
 class StreamHandler(BaseCallbackHandler):
@@ -216,12 +292,6 @@ def main():
 
     Answer:
     """
-# This code constructs a question-answering pipeline using retrieval-augmented generation (RAG).
-# It first extracts the user's question, retrieves relevant context (e.g., documents) via a retriever,
-# then formats the retrieved data according to a prompt template. The processed question and context
-# are passed to a GPT model (ChatGPT) to generate a response. The `|` operator is used to chain these
-# operations, allowing for a clean, sequential flow from question extraction to response generation.
-
     qa_prompt = ChatPromptTemplate.from_template(qa_template)
     
     qa_rag_chain = (
