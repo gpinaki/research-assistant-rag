@@ -24,13 +24,13 @@ with open('api_credentials.yml', 'r') as file:
 os.environ['OPENAI_API_KEY'] = api_credentials['openai_api_key']
 
 # Customize initial app landing page
-st.set_page_config(page_title="Research Assistant ChatBot", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="AI-Powered Research Assistant", page_icon="🤖", layout="wide")
 st.markdown("""
     <style>
         .main-title {
             font-size: 2.5em;
             font-weight: bold;
-            color: #4CAF50;
+            color: #000000; /* Change color to black */
             text-align: center;
             margin-top: 20px;
         }
@@ -39,7 +39,7 @@ st.markdown("""
             color: #333;
             text-align: center;
             margin-top: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 20px;s
         }
         .footer {
             font-size: 0.9em;
@@ -58,21 +58,33 @@ st.markdown("""
             font-size: 1.1em;
             color: #333;
         }
+        .conversation-history {
+            font-size: 0.9em; /* Reduce font size */
+        }
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="main-title">Welcome to Research Assistant ChatBot 🤖</div>', unsafe_allow_html=True)
-st.markdown('<div class="subheader">Your AI-powered research companion for smarter, faster insights – transforming documents into knowledge.</div>', unsafe_allow_html=True)
-st.markdown('<div class="footer">Powered by LangChain and Streamlit | Experimental Version | Author: Pinaki Guha</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">Welcome to AI-Powered Research Assistant ChatBot 🤖</div>', unsafe_allow_html=True)
+st.markdown('<div class="subheader">Transform Your Research Workflow with AI: Smarter Document Analysis, Better Insights.</div>', unsafe_allow_html=True)
+st.markdown("""
+<div class="footer">
+    <p style="font-size: 0.9em; color: #666; text-align: center;">
+        Powered by <strong>LangChain</strong> & <strong>Streamlit</strong> | 
+        AI Research Assistant © 2024 | Created by <strong><a href="https://www.linkedin.com/in/pinakiguha" target="_blank">Pinaki Guha</a></strong> |
+        <a href="https://github.com/gpinaki/" target="_blank">GitHub</a>
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 # Sidebar content
 st.sidebar.markdown("""
-    <div class="sidebar-content">
-        <h2>Research Assistant</h2>
-        <p>Upload your PDF, Excel, or CSV files to get started. The assistant will help you answer questions based on the content of the uploaded documents.</p>
-        <hr>
-    </div>
+   <div class="sidebar-content">
+       <h2>Upload Research Documents</h2>
+       <p><strong>Upload your PDF, Excel, or CSV files to get started.</strong></p>
+       <hr>
+   </div>
 """, unsafe_allow_html=True)
+
 
 @st.cache_resource(ttl="1h")
 def configure_retriever(uploaded_files):
@@ -212,11 +224,12 @@ streamlit_msg_history = StreamlitChatMessageHistory(key="langchain_messages")
 
 # Shows the first message when app starts
 if len(streamlit_msg_history.messages) == 0:
-    streamlit_msg_history.add_ai_message("Please ask your question?")
+    streamlit_msg_history.add_ai_message("What is your question?")
 
 # Render current messages from StreamlitChatMessageHistory
 for msg in streamlit_msg_history.messages:
-    st.chat_message(msg.type).write(msg.content)
+    if msg.content != "What is your question?":  # Skip the initial prompt
+        st.chat_message(msg.type).write(msg.content)
 
 class PostMessageHandler(BaseCallbackHandler):
     """
@@ -284,3 +297,7 @@ if user_prompt := st.chat_input():
     except Exception as e:
         st.error(f"An unexpected error occurred: {e}")
 
+# Display the last three questions and answers from the conversation history
+st.markdown('<div class="conversation-history">Conversation History (Last 3 Questions)</div>', unsafe_allow_html=True)
+for msg in streamlit_msg_history.messages[-6:]:
+    st.chat_message(msg.type).write(msg.content)
