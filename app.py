@@ -12,7 +12,6 @@ Key Features:
 - RAG Implementation: Uses LangChain for document processing and retrieval
 - Interactive UI: Built with Streamlit for a user-friendly experience
 - Real-time Streaming: Displays AI responses in real-time
-- Source Attribution: Shows reference sources for transparency
 
 Requirements:
 - Python 3.8+
