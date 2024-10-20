@@ -216,6 +216,12 @@ def main():
 
     Answer:
     """
+# This code constructs a question-answering pipeline using retrieval-augmented generation (RAG).
+# It first extracts the user's question, retrieves relevant context (e.g., documents) via a retriever,
+# then formats the retrieved data according to a prompt template. The processed question and context
+# are passed to a GPT model (ChatGPT) to generate a response. The `|` operator is used to chain these
+# operations, allowing for a clean, sequential flow from question extraction to response generation.
+
     qa_prompt = ChatPromptTemplate.from_template(qa_template)
     
     qa_rag_chain = (
