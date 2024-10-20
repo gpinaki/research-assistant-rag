@@ -4,19 +4,20 @@ A powerful and intelligent research assistant built using **LangChain** and **St
 
 ## 🌟 Features
 
-- **Multi-Format Document Processing**: Supports PDF, Excel, and CSV files.
-- **Contextual Intelligence**: Powered by GPT-4 and RAG architecture for precise, contextually-aware responses.
-## 🌟 Features
-
-- **Multi-Format Document Processing**: Supports PDF, Excel, and CSV files.
-- **Contextual Intelligence**: Powered by GPT-4 and RAG architecture for precise, contextually-aware responses.
 - **User-Friendly Interface**: Built with Streamlit, offering a clean, intuitive UI.
   
   ![Main Interface](assets/screenshots/main_page.png)
+
+- **Multi-Format Document Processing**: Supports PDF, Excel, and CSV files.
+
+  ![File Upload Section](assets/screenshots/file_upload.png)
   
+- **Contextual Intelligence**: Powered by GPT-4 and RAG architecture for precise, contextually-aware responses.
+
+  ![AI Response Example](assets/screenshots/ai_response.png)
+
 - **Real-time Response Streaming**: Instant AI responses as they are being generated.
 - **Customizable Themes**: Switch between light and dark modes.
-- **Optimized Document Processing**: Efficient chunking and retrieval for fast and accurate results.
 
 
 ## 🚀 Getting Started
@@ -53,6 +54,9 @@ openai_api_key: "your-api-key-here"
 ```bash
 streamlit run app.py --server.port=8989
 ```
+
+![Start Application](assets/screenshots/start_app.png)
+
 2. **Open the web app:** Open your web browser and navigate to `http://localhost:8501`
 
 3. **Upload documents:** Upload your research documents (PDF, Excel, or CSV)
