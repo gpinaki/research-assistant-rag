@@ -1,12 +1,3 @@
-
-
-1. **Direct Copy Method:**
-Click anywhere inside the README.md content in our conversation and use:
-- Windows: `Ctrl + C`
-- Mac: `Command + C`
-
-2. **Here's the raw markdown content you can copy:**
-
 ```markdown
 # Research Assistant ChatBot 🤖
 
@@ -86,6 +77,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 Pinaki Guha  - [pinaki.guha@gmail.com](mailto:pinaki.guha@gmail.com)
 
-Project Link: [https://github.com/gpinaki/research-assistant-chatbot](https://github.com/gpinaki/research-assistant-chatbot)
+Project Link: [https://https://github.com/gpinaki/research-assistant-rag/](https://https://github.com/gpinaki/research-assistant-rag/)
 ```
 
