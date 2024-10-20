@@ -1,0 +1,34 @@
+#  pip venv
+
+python -m venv .rag_qa_env1
+source .rag_qa_env1/bin/activate
+
+# test
+which python
+
+#decativate
+deactivate
+
+# Run Streamlit and kill
+
+(.rag_qa_env1) bash-3.2$ streamlit run app.py --server.port=8989 &>./logs.txt &
+[1] 65568
+kill -9 <<56663>>
+ps -ef | grep streamlit
+
+# upgrade pip
+python3 -m pip install --upgrade pip  
+python3 -m pip install -r requirements.txt
+
+
+
+# upgrade conda 
+conda update conda
+
+# Create conda env rag_qa_env1
+conda env create -f environment.yml
+
+
+
+# activate 
+conda activate rag_qa_env1 
