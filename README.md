@@ -5,7 +5,7 @@ A powerful and intelligent research assistant built using **LangChain** and **St
 ## 🌟 Features
 
 - **Multi-Format Document Processing**: Supports PDF, Excel, and CSV files.
-- **Contextual Intelligence**: Powered by GPT-4 and RAG architecture for precise, contextually-aware responses.
+- **Contextual Intelligence**: Powered by GPT-4 and RAG architecture for precise and contextually-aware responses.
 ## 🌟 Features
 
 - **Multi-Format Document Processing**: Supports PDF, Excel, and CSV files.
